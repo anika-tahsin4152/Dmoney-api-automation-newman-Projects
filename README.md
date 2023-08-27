@@ -1,5 +1,5 @@
 # Dmoney-api-automation-newman-Projects
-# dmoney-api-automation by postman & newman
+# The tool used for API automation is dmoney, which is operated using Postman and Newman.
 
 ## About this project:
 ### D-Money is an innovative demo financial project designed for testing and experimentation. This project provides a secure environment for simulating financial transactions without any real money involved. Within D-Money, the core functionality has been automated by integrating the D-Money API into Postman and Newman tools.
