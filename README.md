@@ -24,4 +24,3 @@ Will update soon
 - [https://documenter.getpostman.com/view/1844288/2s9Y5SVR8K](https://documenter.getpostman.com/view/29168455/2s9Y5YSN69)
 
 ## Test Report
-![screencapture-file-C-Users-User-Downloads-SDET-Postman-P-Dmoney-collection-newman-A1-Reports-report-html-2023-08-28-01_35_42](https://github.com/anika-tahsin4152/Dmoney-api-automation-newman-Projects/assets/73738319/522e1528-7d62-42e1-9b6b-416fa5c5344c)

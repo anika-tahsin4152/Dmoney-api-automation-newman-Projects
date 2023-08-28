@@ -2,7 +2,7 @@ const newman = require("newman");
 
 newman.run(
   {
-    collection:"https://api.postman.com/collections/29168455-46147633-b39d-4eb4-983a-bf5771b25663?access_key=PMAT-01H8VB3J5ZT9SZ9S9486D5WD1P",
+    collection:'https://api.postman.com/collections/29168455-46147633-b39d-4eb4-983a-bf5771b25663?access_key=PMAT-01H8VB3J5ZT9SZ9S9486D5WD1P',
      // pointing to local JSON file.
 
     iterationCount: 1,

@@ -233,88 +233,6 @@
 			"response": []
 		},
 		{
-			"name": "Create Marchant",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"var randoId=_.random(10000,99999)\r",
-							"var MarchantphoneNumber=\"01\"+_.random(100000000,999999999)\r",
-							"pm.collectionVariables.set(\"randoId\",randoId)\r",
-							"pm.collectionVariables.set(\"MarchantphoneNumber\",MarchantphoneNumber)\r",
-							"\r",
-							"// pm.environment.set(\"randomId\",randomId)\r",
-							"// pm.environment.set(\"phoneNumber\",phoneNumber)\r",
-							"var randNID = _.random(1000000000, 9999999999)\r",
-							"pm.collectionVariables.set(\"MarNID\", randNID);"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var jsonData= pm.response.json();\r",
-							"var id= jsonData.user.id;\r",
-							"var phonenumber=jsonData.user.phone_number;\r",
-							"\r",
-							"pm.collectionVariables.set(\"agentId\",id)\r",
-							"pm.collectionVariables.set(\"marchnat_phone_number\",phonenumber)\r",
-							"\r",
-							"// pm.environment.set(\"agentId\",id)\r",
-							"// pm.environment.set(\"agent_phone_number\",phonenumber)\r",
-							"\r",
-							"pm.test(\"Check if user created\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).contains(\"User created\");\r",
-							"});\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "{{Token}}",
-						"type": "text"
-					},
-					{
-						"key": "X-AUTH-SECRET-KEY",
-						"value": "{{X-AUTH-SECRET-KEY}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Test_Marchant Hridi\",\r\n    \"email\":\"agent{{randoId}}@test.com\",\r\n    \"password\":\"1234\",\r\n    \"phone_number\":\"{{MarchantphoneNumber}}\",\r\n    \"nid\":\"{{MarNID}}\",\r\n    \"role\":\"Marchant\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseurl}}/user/create",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"user",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Create Customer1",
 			"event": [
 				{
@@ -370,7 +288,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"email\":\"{{$randomEmail}}\",\r\n    \"password\":\"{{$randomPassword}}\",\r\n    \"phone_number\":\"{{phoneNumber1}}\",\r\n    \"nid\":\"1234789428\",\r\n    \"role\":\"Customer 1\"\r\n}",
+					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"email\":\"{{$randomEmail}}\",\r\n    \"password\":\"{{$randomPassword}}\",\r\n    \"phone_number\":\"{{phoneNumber1}}\",\r\n    \"nid\":\"1234789428\",\r\n    \"role\":\"Customer\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -479,8 +397,8 @@
 							"pm.collectionVariables.set(\"userId\", id)\r",
 							"pm.collectionVariables.set(\"customer2_phone_number\", phoneNumber)\r",
 							"\r",
-							"pm.environment.set(\"userId\",id)\r",
-							"pm.environment.set(\"customer_phone_number\",phoneNumber)"
+							"// pm.environment.set(\"userId\",id)\r",
+							"// pm.environment.set(\"customer_phone_number\",phoneNumber)"
 						],
 						"type": "text/javascript"
 					}
@@ -502,7 +420,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"email\":\"{{$randomEmail}}\",\r\n    \"password\":\"{{$randomPassword}}\",\r\n    \"phone_number\":\"{{phoneNumberc2}}\",\r\n    \"nid\":\"1234789429\",\r\n    \"role\":\"Customer 2\"\r\n}",
+					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"email\":\"{{$randomEmail}}\",\r\n    \"password\":\"{{$randomPassword}}\",\r\n    \"phone_number\":\"{{phoneNumberc2}}\",\r\n    \"nid\":\"1234789429\",\r\n    \"role\":\"Customer\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -580,92 +498,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseurl}}/user/update/24347",
+					"raw": "{{baseurl}}/user/update/24869",
 					"host": [
 						"{{baseurl}}"
 					],
 					"path": [
 						"user",
 						"update",
-						"24347"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "update customer1 role",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "{{Token}}",
-						"type": "text"
-					},
-					{
-						"key": "X-AUTH-SECRET-KEY",
-						"value": "{{X-AUTH-SECRET-KEY}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"email\":\"{{$randomEmail}}\",\r\n    \"password\":\"{{$randomPassword}}\",\r\n    \"phone_number\":\"{{phoneNumber1}}\",\r\n    \"nid\":\"1234789428\",\r\n    \"role\":\"Customer\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseurl}}/user/update/24223",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"user",
-						"update",
-						"24223"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "update customer2 role",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "{{Token}}",
-						"type": "text"
-					},
-					{
-						"key": "X-AUTH-SECRET-KEY",
-						"value": "{{X-AUTH-SECRET-KEY}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"email\":\"{{$randomEmail}}\",\r\n    \"password\":\"{{$randomPassword}}\",\r\n    \"phone_number\":\"{{phoneNumberc2}}\",\r\n    \"nid\":\"1234789429\",\r\n    \"role\":\"Customer\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseurl}}/user/update/24225",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"user",
-						"update",
-						"24225"
+						"24869"
 					]
 				}
 			},
@@ -718,7 +558,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{baseurl}}/user/search/id/24354",
+					"raw": "{{baseurl}}/user/search/id/24869",
 					"host": [
 						"{{baseurl}}"
 					],
@@ -726,7 +566,7 @@
 						"user",
 						"search",
 						"id",
-						"24354"
+						"24869"
 					]
 				}
 			},
@@ -739,7 +579,14 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"pm.test(\"System deposit to agent is successful\",()=>{\r",
+							"    var jsonData= pm.response.json();\r",
+							"    var message= jsonData.message;\r",
+							"    pm.expect(message).contains(\"Deposit successful\")\r",
+							"})\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -1135,13 +982,20 @@
 			"response": []
 		},
 		{
-			"name": "Withdraw by cus2 Copy",
+			"name": "Money Withdraw",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"pm.test(\"Check if Withdraw is successful\",()=>{\r",
+							"    var jsonData= pm.response.json();\r",
+							"    var message= jsonData.message;\r",
+							"    pm.expect(message).contains(\"Withdraw successful\")\r",
+							"})\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -1163,7 +1017,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"from_account\":\"{{customer2_phone_number}}\",\r\n    \"to_account\":\"{{AgentphoneNumber}}\",\r\n    \"amount\":600\r\n}",
+					"raw": "{\r\n    \"from_account\":\"{{customer2_phone_number}}\",\r\n    \"to_account\":\"{{agent_phone_number}}\",\r\n    \"amount\":200\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1196,8 +1050,8 @@
 							"});\r",
 							"\r",
 							"\r",
-							"pm.test(\"Status code is 208\", function () {\r",
-							"        pm.response.to.have.status(208);\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"        pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
 							"// pm.test(\"Status code is 201\", function () {\r",
@@ -1245,7 +1099,7 @@
 			"response": []
 		},
 		{
-			"name": "cust1 check balance",
+			"name": "cust2 check balance",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1297,7 +1151,10 @@
 							"    var jsonData= pm.response.json();\r",
 							"    var message= jsonData.message;\r",
 							"    pm.expect(message).contains(\"Send money successful\")\r",
-							"})"
+							"})\r",
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -1319,7 +1176,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"from_account\":\"{{customer1_phone_number}}\",\r\n    \"to_account\":\"{{customer2_phone_number}}\",\r\n    \"amount\":100\r\n}",
+					"raw": "{\r\n    \"from_account\":\"{{customer2_phone_number}}\",\r\n    \"to_account\":\"{{customer1_phone_number}}\",\r\n    \"amount\":100\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1397,6 +1254,24 @@
 		},
 		{
 			"name": "Payment to marchant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Payment is successful\",()=>{\r",
+							"    var jsonData= pm.response.json();\r",
+							"    var message= jsonData.message;\r",
+							"    pm.expect(message).contains(\"Payment successful\")\r",
+							"})\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -1577,7 +1452,7 @@
 	"variable": [
 		{
 			"key": "Token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHJvYWR0b2NhcmVlci5uZXQiLCJwYXNzd29yZCI6IjEyMzQiLCJpYXQiOjE2OTMxMzI4NjcsImV4cCI6MTY5MzEzNDY2N30.yxrdCl7Fl7onM_a4UlLch1PIK5fBGg0JO6X2jqUCgr0"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHJvYWR0b2NhcmVlci5uZXQiLCJwYXNzd29yZCI6IjEyMzQiLCJpYXQiOjE2OTMyMTgzMzUsImV4cCI6MTY5MzIyMDEzNX0.wQLpyyzKOmea_j0JLeUs_SJ0ejV0uH4OKbjvCddJLaA"
 		},
 		{
 			"key": "baseurl",
@@ -1591,31 +1466,31 @@
 		},
 		{
 			"key": "randomId",
-			"value": 58463
+			"value": 96400
 		},
 		{
 			"key": "AgentphoneNumber",
-			"value": "01407280945"
+			"value": "01242098616"
 		},
 		{
 			"key": "agentId",
-			"value": 24358
+			"value": 24867
 		},
 		{
 			"key": "agent_phone_number",
-			"value": "01407280945"
+			"value": "01242098616"
 		},
 		{
 			"key": "phoneNumber1",
-			"value": "01171508176"
+			"value": "01669868057"
 		},
 		{
 			"key": "NID",
-			"value": 8806793173
+			"value": 4877290822
 		},
 		{
 			"key": "userId",
-			"value": 24360
+			"value": 24869
 		},
 		{
 			"key": "Name",
@@ -1627,19 +1502,19 @@
 		},
 		{
 			"key": "customer1_phone_number",
-			"value": "01171508176"
+			"value": "01669868057"
 		},
 		{
 			"key": "phoneNumberc2",
-			"value": "01301752443"
+			"value": "01747118906"
 		},
 		{
 			"key": "NID2",
-			"value": 4665268480
+			"value": 7536294393
 		},
 		{
 			"key": "customer2_phone_number",
-			"value": "01423116181"
+			"value": "01580507694"
 		},
 		{
 			"key": "randoId",
