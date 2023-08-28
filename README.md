@@ -24,3 +24,4 @@ Will update soon
 - [https://documenter.getpostman.com/view/1844288/2s9Y5SVR8K](https://documenter.getpostman.com/view/29168455/2s9Y5YSN69)
 
 ## Test Report
+![Test Report](https://github.com/anika-tahsin4152/Dmoney-api-automation-newman-Projects/assets/73738319/249019e3-d108-4e43-a462-7da367c531cc)
