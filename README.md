@@ -28,3 +28,9 @@ Will update soon
 =======
 ![Test Report](https://github.com/anika-tahsin4152/Dmoney-api-automation-newman-Projects/assets/73738319/249019e3-d108-4e43-a462-7da367c531cc)
 >>>>>>> 92ed8e60642703be07e524ab6c209b0d5ba7f5f4
+
+## Test Case Link
+-https://docs.google.com/document/d/19D9A4MCbVaQFdpdfxjSkxWnT9mXVUm55Ub6qKvRE5bI/edit?usp=sharing
+
+## Bug Report 
+-https://docs.google.com/spreadsheets/d/1SnGxsSi32sDmRKhVCrEZ9Vrmt4v3uNttvm4NqRsHldE/edit?usp=sharing
