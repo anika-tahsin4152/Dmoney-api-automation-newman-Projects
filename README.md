@@ -30,7 +30,7 @@
 >>>>>>> 92ed8e60642703be07e524ab6c209b0d5ba7f5f4
 
 ## Test Case Link
--[https://docs.google.com/document/d/19D9A4MCbVaQFdpdfxjSkxWnT9mXVUm55Ub6qKvRE5bI/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1IXPpLoWWJv2stWNWyUdPcge0ST8ojf1_w8PKKYRES2E/edit?usp=sharing)
+-https://docs.google.com/spreadsheets/d/1IXPpLoWWJv2stWNWyUdPcge0ST8ojf1_w8PKKYRES2E/edit?usp=sharing
 
 ## Bug Report 
 -https://docs.google.com/spreadsheets/d/1SnGxsSi32sDmRKhVCrEZ9Vrmt4v3uNttvm4NqRsHldE/edit?usp=sharing
